@@ -1,6 +1,5 @@
 import journal
 
-
 def main():
     print_header()
     run_event_loop()
@@ -15,11 +14,11 @@ def print_header():
 
 def run_event_loop():
     print('Hey your journal app is running, what do you want to do?')
-    cmd = None
+    cmd = 'EMPTY'
     journal_name = 'default'
     journal_data = journal.load(journal_name)  # list()
 
-    while cmd != 'x':
+    while cmd != 'x' and cmd:
         cmd = input('[L]ist entries, [A]dd an entry, E[x]it: ')
         cmd = cmd.lower().strip()
 
@@ -27,7 +26,7 @@ def run_event_loop():
             list_entries(journal_data)
         elif cmd == 'a':
             add_entry(journal_data)
-        elif cmd != 'x':
+        elif cmd != 'x' and cmd:
             print(
                 "I only understand these three commands A, L and x dum dum, I don't know what to do with '{}'.".format(
                     cmd))
@@ -45,8 +44,9 @@ def list_entries(data):
 
 def add_entry(data):
     text = input("type your entry <enter> to leave this place: ")
-    journal.add_entry(text)
-    data.append(text)
+    journal.add_entry(text, data)
+    # data.append(text)
 
 
-main()
+if __name__ == '__main__':
+    main()
