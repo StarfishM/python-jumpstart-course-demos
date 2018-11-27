@@ -2,6 +2,7 @@ import requests
 import bs4
 import collections
 
+
 WeatherReport = collections.namedtuple("WeatherReport",
                                        "cond, temp, scale, loc")
 
@@ -58,7 +59,6 @@ def get_weather_from_html(html):
     scale = soup.find(class_='wu-unit-temperature').find(class_='wu-label').get_text()
 
     loc = cleanup_text(loc)
-    #loc = find_city_and_country_location(loc)
     condition = cleanup_text(condition)
     temp = cleanup_text(temp)
     scale = cleanup_text(scale)
