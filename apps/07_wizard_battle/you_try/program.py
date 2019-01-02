@@ -1,4 +1,5 @@
-from actors import Wizard,Creature
+from actors import Wizard, Creature
+import random
 
 def main():
     print_the_header()
@@ -21,10 +22,14 @@ def game_loop():
         Creature('Evil Wizard', 1000)
 
     ]
+    print(creatures)
 
     hero = Wizard('Gandolf', 75)
 
+
     while True:
+        active_creature = random.choice(creatures)
+        print("A {} has appeared from the dark and misty forest")
 
         cmd = input('Do you [s]mile, [r]un away or [l]ook around?')
         if cmd == 's':
