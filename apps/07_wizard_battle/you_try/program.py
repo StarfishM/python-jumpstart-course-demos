@@ -29,7 +29,7 @@ def game_loop():
 
     while True:
         active_creature = random.choice(creatures)
-        print("A {} has appeared from the dark and misty forest")
+        print("A {} has appeared from the dark and misty forest grounds")
 
         cmd = input('Do you [s]mile, [r]un away or [l]ook around?')
         if cmd == 's':
